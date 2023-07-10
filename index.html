@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>BitNexus</title>
+    <style>
+        body {
+            background-color: #100439;
+            
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #0a0a0a;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .navbar li {
+            margin-right: 10px;
+        }
+        
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+           background-image:url('bg.jpg');
+            background-size:100%;
+        }
+
+        .container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        .container h1 {
+            color: #c0d8e8;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 150px;
+            
+            align-content:center;
+        }
+
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 0px;
+            color: #ffd90000;
+        }
+
+        .container p {
+            font-size: 35px;
+            line-height: 1.5;
+            color: #fff;
+            align-items: center;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #fff;
+        }
+
+        th,
+        td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+
+        .search-container {
+            margin-bottom: 0px;
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .search-input {
+            background-color: #111111;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            flex: 1;
+            border-radius: 5px 0 0 5px;
+            
+        }
+
+        .search-button {
+            background-color: #4c4c4c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="trending.html">Trending</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </div>
+
+    <div class="container" >
+        
+        <h1>BitNexus</h1>
+        <p>Invest in the Future of Currency Now
+        </p>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search coin by name">
+            <button id="searchButton" class="search-button" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        </div>
+
+        <table id="coinTable">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                    <th>Market Cap</th>
+                    <th>24h Volume</th>
+                </tr>
+            </thead>
+            <tbody id="coinData"></tbody>
+        </table>
+    
+
+    <script src="script.js"></script>
+    <script>
+        // JavaScript code goes here
+    </script>
+</body>
+
+</html>

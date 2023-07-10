@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 5 Coins</title>
+  <style>
+    body {
+      background-color: #000;
+      background-image: url('bitnex.jpg');
+      color: #fff;
+      font-family: Arial, sans-serif;
+      
+      margin: 0;
+    }
+    .navbar {
+            background-color: #080808;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .navbar li {
+            margin-right: 10px;
+        }
+
+        .navbar a {
+            color: #bfdbeb;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #c6ebf3;
+      text-align: center;
+    }
+
+    .coin-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #808080;
+      padding-bottom: 10px;
+    }
+
+    .coin-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .coin-name {
+      font-size: 16px;
+      color: #c2edf6;
+      text-decoration: none;
+    }
+
+    .coin-symbol {
+      font-size: 12px;
+      color: #808080;
+    }
+
+    .coin-ranking {
+      font-size: 14px;
+      color: #ffd700;
+      margin-right: 10px;
+    }
+
+    .coin-description {
+      font-size: 14px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .coin-description a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    .coin-description a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="trending.html">Trending</a></li>
+            <li><a href="#">About Us</a></li>
+            
+        </ul></div>
+  <div class="container">
+    <h1>Top 5 Coins Over The Years</h1>
+    <div class="coin-container">
+      <span class="coin-ranking">1.</span>
+      <img class="coin-icon" src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Icon">
+      <span class="coin-name"><a href="bitcoin.html">Bitcoin</a></span>
+      <span class="coin-symbol">(BTC)</span>
+    </div>
+    <p class="coin-description">
+      Bitcoin is the first and largest cryptocurrency by market capitalization. It was created in 2009 by an anonymous person or group of people using the pseudonym Satoshi Nakamoto. Bitcoin operates on a decentralized network called the blockchain, enabling peer-to-peer transactions without the need for intermediaries like banks.
+    </p>
+
+    <div class="coin-container">
+      <span class="coin-ranking">2.</span>
+      <img class="coin-icon" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/ethereum-eth-icon.png" alt="Ethereum Icon">
+      <span class="coin-name"><a href="eth.html">Ethereum</a></span>
+      <span class="coin-symbol">(ETH)</span>
+    </div>
+    <p class="coin-description">
+      Ethereum is a decentralized blockchain platform that enables the creation and execution of smart contracts. It was proposed in 2013 by Vitalik Buterin and has since become the foundation for a wide range of decentralized applications (DApps) and tokens. Ethereum's native cryptocurrency is called Ether.
+    </p>
+
+    <div class="coin-container">
+      <span class="coin-ranking">3.</span>
+      <img class="coin-icon" src="https://cdn-icons-png.flaticon.com/512/825/825508.png" alt="Tether Icon">
+      <span class="coin-name"><a href="tether.html">Tether</a></span>
+      <span class="coin-symbol">(USDT)</span>
+    </div>
+    <p class="coin-description">
+      Tether is a stablecoin that aims to maintain a 1:1 ratio with a traditional fiat currency, usually the U.S. dollar. It operates on various blockchain platforms, including Ethereum and Tron. Tether provides a way for users to transact with digital assets while minimizing the volatility often associated with cryptocurrencies.
+    </p>
+
+    <div class="coin-container">
+      <span class="coin-ranking">4.</span>
+      <img class="coin-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzcHH9UlhUUT8FU-yHuzSpQ-TNbbaLpmV_u9nfEAs&s.png" alt="Binance Coin Icon">
+      <span class="coin-name"><a href="BNB.html">Binance Coin</a></span>
+      <span class="coin-symbol">(BNB)</span>
+    </div>
+    <p class="coin-description">
+      Binance Coin is the native cryptocurrency of the Binance exchange, one of the largest cryptocurrency exchanges globally. BNB is used to pay for transaction fees on the Binance platform, participate in token sales, and more. Binance has also developed its own blockchain, called Binance Chain, where BNB can be used as a utility token.
+    </p>
+
+    <div class="coin-container">
+      <span class="coin-ranking">5.</span>
+      <img class="coin-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Circle_USDC_Logo.svg/1024px-Circle_USDC_Logo.svg.png" alt="USD Coin Icon">
+      <span class="coin-name"><a href="USDC.html">USD Coin</a></span>
+      <span class="coin-symbol">(USDC)</span>
+    </div>
+    <p class="coin-description">
+      USD Coin is a stablecoin issued by Circle and Coinbase. It is backed by US dollars held in reserve bank accounts, providing a 1:1 ratio between the cryptocurrency and the fiat currency. USD Coin aims to combine the advantages of cryptocurrencies, such as fast and secure transactions, with the stability of traditional currencies.
+    </p>
+  </div>
+</body>
+
+</html>
+
+
+

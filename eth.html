@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethereum Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #000000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #line-chart {
+      background-color: #000;
+    }
+
+    label {
+      color: #fff;
+      margin-right: 10px;
+    }
+
+    select {
+      color: #fff;
+      background-color: #000;
+      border: none;
+      padding: 5px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ethereum over the Years</h1>
+  <div>
+    <label for="year-select">Select Year:</label>
+    <select id="year-select" onchange="updateChart()">
+      <option value="">All Years</option>
+    </select>
+  </div>
+  <canvas id="line-chart" width="800" height="450"></canvas>
+
+  <script>
+    const url = 'https://coinranking1.p.rapidapi.com/coin/razxDUgYGNAdQ/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=5y';
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'c8d09f4c33msh53fe2a20274a710p1be166jsn0265e1a0f41a',
+        'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com',
+      },
+    };
+
+    let coinHistory = [];
+
+    async function getData() {
+      const response = await fetch(url, options);
+      const data = await response.json();
+
+      coinHistory = data.data.history;
+      const years = getUniqueYears(coinHistory);
+      populateYearDropdown(years);
+      createChart(coinHistory);
+    }
+
+    function getUniqueYears(data) {
+      const years = [];
+      data.forEach(item => {
+        const year = new Date(item.timestamp * 1000).getFullYear();
+        if (!years.includes(year)) {
+          years.push(year);
+        }
+      });
+      return years.sort((a, b) => b - a);
+    }
+
+    function populateYearDropdown(years) {
+      const yearSelect = document.getElementById("year-select");
+      years.forEach(year => {
+        const option = document.createElement("option");
+        option.value = year;
+        option.text = year;
+        yearSelect.appendChild(option);
+      });
+    }
+
+    function createChart(data) {
+      const labels = data.map((item) => new Date(item.timestamp * 1000).toLocaleDateString());
+      const values = data.map((item) => parseFloat(item.price));
+
+      new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Ethereum Price',
+            data: values,
+            borderColor: "#800080",
+            fill: false
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Ethereum Price vs Time',
+            fontColor: "#fff"
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#ffffff"
+              }
+            },
+            y: {
+              ticks: {
+                color: "#ffffff"
+              },
+              grid: {
+                color: "#ffffff"
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChart() {
+      const selectedYear = parseInt(document.getElementById("year-select").value);
+      const yearSelect = document.getElementById("year-select");
+      const chart = Chart.getChart("line-chart");
+
+      if (selectedYear) {
+        const filteredData = coinHistory.filter(item => new Date(item.timestamp * 1000).getFullYear() === selectedYear);
+        const labels = filteredData.map((item) => new Date(item.timestamp * 1000).toLocaleDateString());
+        const values = filteredData.map((item) => parseFloat(item.price));
+
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = values;
+      } else {
+        const originalData = coinHistory;
+        const labels = originalData.map((item) => new Date(item.timestamp * 1000).toLocaleDateString());
+        const values = originalData.map((item) => parseFloat(item.price));
+
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = values;
+      }
+
+      chart.update();
+    }
+
+    getData();
+  </script>
+</body>
+
+</html>
